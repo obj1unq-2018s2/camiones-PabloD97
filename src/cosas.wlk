@@ -21,10 +21,9 @@ object contenedorPortuario{
 	
 	method cargar(cosa){ cosas.add(cosa) }
 	
-	method peso()= if(not cosas.isEmpty()) cosas.size() + 100
-				   else 100
+	method peso()=  cosas.sume({cosa => cosa.peso()}) + 100
 
-	method nivelDePeligrosos()= cosas.max({cosa => cosa.peligrosidad()}).peligrosidad() 
+	method nivelDePeligrosos()= if(cosas.isEmpty()) 0 else cosas.max({cosa => cosa.peligrosidad()}).peligrosidad() 
 }
 
 object paqueteDeLadrillo{
