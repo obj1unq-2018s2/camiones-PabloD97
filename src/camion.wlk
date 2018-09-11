@@ -18,6 +18,6 @@ object camion {
 	
 	method objetosMasPeligrososQue(cosa)= cargas.find({ cosas => cosas.peligrosidad() > cosa.peligrosidad() })
 
-	method puedeCircularEnRuta(nivelMaximoPeligrosidad) = cargas.
+	method puedeCircularEnRuta(nivelMaximoPeligrosidad) =cargas.all({cosa=>cosa.peligrosidad()< nivelMaximoPeligrosidad })
 }
 
