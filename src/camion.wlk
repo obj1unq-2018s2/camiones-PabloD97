@@ -14,10 +14,14 @@ object camion {
 		cargas.remove(cosa)
 	}
 	
+	method pesoTotal()= tara + cargas.sum({cosas=> cosas.peso() })
+	
 	method objetosPeligrosos(n)= cargas.filter({ cosa => cosa.peligrosidad() > n } ) 
 	
 	method objetosMasPeligrososQue(cosa)= cargas.find({ cosas => cosas.peligrosidad() > cosa.peligrosidad() })
 
 	method puedeCircularEnRuta(nivelMaximoPeligrosidad) =cargas.all({cosa=>cosa.peligrosidad()< nivelMaximoPeligrosidad })
+
+	
 }
 
